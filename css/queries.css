@@ -21,21 +21,33 @@
   }
 
   .header {
+  padding: 0.5rem 1.5rem;
+
   }
   .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 20px;
-    padding-right: 1.5rem;
+    height: 16px;
+    /* padding-right: 1.5rem; */
     z-index: 9999;
     overflow: hidden;
   }
 
   .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 20px;
+    height: 2.5px;
     background-color: #fff;
     transition: all 0.05 ease;
+  }
+  .left-header {
+    gap: 1rem;
+  }
+  .sign-up:link,
+  .sign-up:visited,
+  .log-in:link,
+  .log-in:visited {
+    margin-top: 
+    font-size: 1.3rem;
   }
 }

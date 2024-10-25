@@ -19,7 +19,8 @@ html {
   align-items: center;
   justify-content: space-between;
   background-color: #40c057;
-  height: 7rem;
+  /* height: 7rem; */
+  padding: 2rem 10rem;
 }
 .nav {
   display: flex;
