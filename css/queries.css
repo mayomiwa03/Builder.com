@@ -3,6 +3,14 @@
     font-size: 50%;
   }
 
+  #splash-screen h1 {
+    font-size: 3rem;
+  }
+
+  #splash-screen p {
+    font-size: 1.8rem;
+  }
+
   .nav-menu {
     display: none;
     position: absolute;
@@ -21,8 +29,7 @@
   }
 
   .header {
-  padding: 1rem 1.5rem;
-
+    padding: 1rem 1.5rem;
   }
   .hamburger {
     display: flex;
@@ -47,7 +54,7 @@
   .sign-up:visited,
   .log-in:link,
   .log-in:visited {
-    margin-top: 
+    margin-top: ;
     font-size: 1.3rem;
   }
 }
