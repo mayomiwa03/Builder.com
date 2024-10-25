@@ -22,6 +22,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100vh;
     width: 100vw;
+    gap: 3rem;
 
     padding-top: 10rem;
     -webkit-backdrop-filter: blur(5px);
@@ -61,7 +62,9 @@
   .sign-up:visited,
   .log-in:link,
   .log-in:visited {
-    margin-top: ;
     font-size: 1.3rem;
+  }
+  .nav-menu li {
+    font-size: 1.7rem;
   }
 }
