@@ -1,4 +1,19 @@
 "use strict";
+
+// Set timeout duration Splash screen(in milliseconds)
+const timeoutDuration = 2000;
+
+// Get splash screen and main content elements
+const splashScreen = document.getElementById("splash-screen");
+const mainContent = document.getElementById("main-content");
+
+// Hide splash screen and show main content after timeout
+setTimeout(() => {
+  splashScreen.style.display = "none";
+  mainContent.style.display = "block";
+}, timeoutDuration);
+
+// Mobile nav
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const blurBackground = document.querySelector(".blur-background");

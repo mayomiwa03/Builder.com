@@ -21,7 +21,7 @@
   }
 
   .header {
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
 
   }
   .hamburger {
@@ -30,7 +30,7 @@
     justify-content: space-between;
     height: 16px;
     /* padding-right: 1.5rem; */
-    z-index: 9999;
+    z-index: 998;
     overflow: hidden;
   }
 
