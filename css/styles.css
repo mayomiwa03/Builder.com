@@ -48,7 +48,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #40c057;
+  background-color: #8ce99a;
   /* height: 7rem; */
   padding: 2rem 10rem;
 }
@@ -101,15 +101,31 @@ html {
   display: none;
 }
 .nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 .nav-menu li {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 200px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  overflow-y: hidden;
+
+  /* margin-bottom: 1rem; */
+}
+.nav-menu li:hover {
+  background-color: #ffffff86;
 }
 
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
+}
+.nav-menu a:hover {
+  color: #000;
 }
 
 /* Blur background styles */

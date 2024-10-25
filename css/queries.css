@@ -30,6 +30,7 @@
 
   .header {
     padding: 1rem 1.5rem;
+    padding-right: 8rem;
   }
   .hamburger {
     display: flex;
@@ -39,6 +40,8 @@
     /* padding-right: 1.5rem; */
     z-index: 998;
     overflow: hidden;
+    position: absolute;
+    right: 1.5rem;
   }
 
   .hamburger span {
