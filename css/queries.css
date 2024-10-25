@@ -50,6 +50,10 @@
     background-color: #fff;
     transition: all 0.05 ease;
   }
+  .nav-menu a {
+    color: #000;
+    font-weight: 500;
+  }
   .left-header {
     gap: 1rem;
   }
