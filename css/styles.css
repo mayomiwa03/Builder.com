@@ -107,7 +107,7 @@ html {
   /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
-  animation: dropdown 0.4s ease;
+  gap: 2rem;
 }
 
 .log-in,
@@ -120,17 +120,21 @@ html {
   cursor: pointer;
   border-radius: 200px;
 }
+
+.log-in:hover,
+.sign-up:hover {
+}
+
 .log-in-dropdown,
 .sign-up-dropdown {
   display: none;
   position: absolute;
-  top: 10rem;
+  top: 7rem;
   right: 0;
   background-color: #333;
   padding: 1rem;
   border: 1px solid #444;
   border-radius: 0.5rem;
-  animation: dropdown 0.5s ease;
 }
 
 .log-in-dropdown a,
