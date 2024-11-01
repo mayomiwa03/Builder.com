@@ -107,7 +107,7 @@ html {
   /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .log-in,
@@ -129,7 +129,7 @@ html {
 .sign-up-dropdown {
   display: none;
   position: absolute;
-  top: 7rem;
+  top: 8rem;
   right: 0;
   background-color: #333;
   padding: 1rem;
