@@ -44,7 +44,8 @@ html {
 .body {
 }
 
-.header {
+.header,
+.start-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,6 +62,7 @@ html {
 .logo {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 
 .right-header {
@@ -271,5 +273,84 @@ html {
   transition: width 0.5s;
 }
 .hero-btn:hover::before {
+  width: 130%;
+}
+/* start html styling */
+.start-body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.bth {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.8rem;
+}
+.cta {
+  padding-top: 10rem;
+}
+.cta-textbox {
+}
+.start-main {
+  height: 90vh;
+}
+.right-arrow {
+  font-weight: 700;
+  /* font-size: 2rem; */
+}
+.heading-secondary {
+  font-size: 3rem;
+  padding-bottom: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.choose {
+  display: grid;
+  grid-template-columns: 70fr 30fr;
+}
+.choose-img {
+  padding-left: 4rem;
+  width: 100%;
+}
+.choice {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 5rem;
+  /* padding-top: 10rem; */
+}
+.as-a-vendor,
+.as-a-customer {
+  width: 25rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.6rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 1rem 4.4rem;
+}
+.as-a-vendor:hover,
+.as-a-customer:hover {
+}
+.as-a-vendor::before,
+.as-a-customer::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -30px;
+  width: 0;
+  height: 100%;
+  background-color: greenyellow;
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: width 0.5s;
+}
+.as-a-vendor:hover::before,
+.as-a-customer:hover::before {
   width: 130%;
 }

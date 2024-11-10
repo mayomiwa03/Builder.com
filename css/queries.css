@@ -25,7 +25,7 @@
     width: 60%;
   }
   .hero-p {
-    width: 85%;
+    width: 90%;
   }
   .log-in-dropdown {
     right: 5rem;
@@ -33,6 +33,24 @@
 
   .sign-up-dropdown {
     right: 0rem;
+  }
+  .heading-secondary {
+    font-weight: 700;
+  }
+  .choose-img {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .choose {
+    grid-template-columns: 1fr;
+  }
+  .as-a-vendor,
+  .as-a-customer {
+    margin: 0 auto;
+    font-size: 1.8rem;
+    width: 30rem;
+    border-radius: 200px;
+    padding: 1rem 4.8rem;
   }
 }
 @media (max-width: 480px) {

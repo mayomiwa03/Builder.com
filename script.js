@@ -51,3 +51,18 @@ setTimeout(() => {
   splashScreen.style.display = "none";
   mainContent.style.display = "block";
 }, timeoutDuration);
+
+// go to home whenever logo is clicked
+
+const home = document.querySelector(".logo");
+
+home.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
+// hero button goes to log in/sign up page
+const heroButton = document.querySelector(".hero-btn");
+
+heroButton.addEventListener("click", () => {
+  window.location.href = "start.html";
+});
