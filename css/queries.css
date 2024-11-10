@@ -34,6 +34,9 @@
   .sign-up-dropdown {
     right: 0rem;
   }
+  .cta {
+    padding-top: 7rem;
+  }
   .heading-secondary {
     font-weight: 700;
   }
@@ -43,6 +46,9 @@
   }
   .choose {
     grid-template-columns: 1fr;
+  }
+  .choice {
+    padding-top: 3rem;
   }
   .as-a-vendor,
   .as-a-customer {
