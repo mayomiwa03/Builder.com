@@ -49,6 +49,7 @@
   }
   .choice {
     padding-top: 3rem;
+    align-items: center;
   }
   .as-a-vendor,
   .as-a-customer {
