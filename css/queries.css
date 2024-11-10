@@ -12,11 +12,20 @@
 
   .header {
     padding: 1rem 1.5rem;
-    padding-right: 8rem;
+    padding-right: 2rem;
   }
 
   .nav-menu li {
-    font-size: 1.7rem;
+    font-size: 2rem;
+  }
+  .hero-text-wrap {
+    padding: 25rem 5rem;
+  }
+  .hero-header {
+    width: 60%;
+  }
+  .hero-p {
+    width: 80%;
   }
 }
 @media (max-width: 480px) {
