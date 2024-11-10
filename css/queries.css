@@ -58,6 +58,7 @@
     width: 30rem;
     border-radius: 200px;
     padding: 1rem 4.8rem;
+    text-align: center;
   }
 }
 @media (max-width: 480px) {
