@@ -331,6 +331,12 @@ html {
   gap: 5rem;
   row-gap: 15rem;
 }
+
+.step-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .step-img {
   width: 90%;
 }
