@@ -2,12 +2,79 @@
   html {
     font-size: 50%;
   }
+  #splash-screen {
+    /* background-image: url("../imgs/tools-img/screwdrill.png");
+    background-size: fill;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
   #splash-screen h1 {
+    /* position: absolute; */
+    bottom: 3rem;
     font-size: 3rem;
+    /* color: #333;
+    z-index: 999; */
   }
 
   #splash-screen p {
     font-size: 1.8rem;
+    /* color: #333; */
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 1rem;
+    /* border: 1px solid #ddd; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 100vw;
+    gap: 3rem;
+
+    background: none;
+    padding-top: 10rem;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+  }
+
+  .nav-menu li {
+    padding-left: 1rem;
+    list-style: none;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    width: 22rem;
+  }
+
+  .auth-dropdowns {
+    margin-right: 7rem;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 15px;
+    cursor: pointer;
+
+    position: absolute;
+    right: 3rem;
+    border: solid 1px #fff;
+    overflow: hidden;
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    /* border: none; */
+    /* background-color: #fff; */
   }
 
   .header {
@@ -32,7 +99,7 @@
   }
 
   .sign-up-dropdown {
-    right: 0rem;
+    right: 1rem;
   }
   .cta {
     padding-top: 7rem;
