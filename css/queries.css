@@ -131,6 +131,13 @@
     row-gap: 7rem;
   }
 
+  .fr-q {
+    flex-direction: column;
+    padding: 2 1rem;
+  }
+  .fr-q-q {
+    width: 100%;
+  }
   .navbar {
     flex-direction: column;
     padding-bottom: 12rem;

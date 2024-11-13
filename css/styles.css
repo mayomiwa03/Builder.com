@@ -382,13 +382,13 @@ html {
   gap: 5rem;
 }
 .fr-q-q {
-  width: 50%;
+  /* width: 50%; */
   font-size: 1.3rem;
   width: 70%;
   /* font-weight: 520; */
 }
 .fr-q-a {
-  width: 100rem;
+  width: 100%;
 }
 
 /* footer */
