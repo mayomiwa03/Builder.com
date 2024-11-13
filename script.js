@@ -66,3 +66,24 @@ const heroButton = document.querySelector(".hero-btn");
 heroButton.addEventListener("click", () => {
   window.location.href = "start.html";
 });
+
+// footer dropdown
+document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent the link from navigating
+
+    const dropdown = toggle.nextElementSibling;
+
+    // Toggle the dropdown's visibility
+    if (dropdown.style.maxHeight) {
+      dropdown.style.maxHeight = null; // Collapse dropdown
+    } else {
+      dropdown.style.maxHeight = dropdown.scrollHeight + "px"; // Expand dropdown
+    }
+  });
+});
+
+// set current year
+const yearEl = document.querySelector(".year");
+const currentYear = new Date().getFullYear();
+yearEl.textContent = currentYear;

@@ -186,7 +186,7 @@ html {
   align-items: center;
 }
 .hero-text-wrap {
-  padding: 30rem 10rem 10rem 10rem;
+  padding: 30rem 10rem 6rem 10rem;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -358,4 +358,59 @@ html {
 .step-description {
   font-size: 1.3rem;
   line-height: 1.8;
+}
+
+/* footer */
+.footer {
+}
+.navbar {
+  background-color: #333;
+  padding: 1rem 1rem 5rem 1rem;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+
+  position: relative;
+}
+.nav-item a {
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+.dropdown {
+  list-style: none;
+}
+.dropdown a {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.dropdown-toggle {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.social-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+.social-icon {
+  font-size: 2rem;
+  color: #fff;
+}
+.follow {
+  font-size: 1.6rem;
+  color: #fff;
+  padding-bottom: 1rem;
+}
+
+.copyright {
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+
+  position: absolute;
+  bottom: 1rem;
+  padding-left: 35%;
 }
