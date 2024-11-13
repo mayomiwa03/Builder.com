@@ -359,6 +359,37 @@ html {
   font-size: 1.3rem;
   line-height: 1.8;
 }
+/* fAQ */
+.faq {
+  padding: 10rem 2rem;
+}
+.faq-h {
+  margin-bottom: 4rem;
+}
+.fr-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fr-q {
+  border-top: 0.7px solid #ccc;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+}
+.fr-q-q {
+  width: 50%;
+  font-size: 1.3rem;
+  width: 70%;
+  /* font-weight: 520; */
+}
+.fr-q-a {
+  width: 100rem;
+}
 
 /* footer */
 .footer {
