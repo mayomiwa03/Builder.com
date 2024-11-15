@@ -25,16 +25,29 @@
   </head>
   <body>
     <!-- Splash screen -->
-    <div id="splash-screen" aria-hidden="true">
-      <div id="splash-screen-texts">
-        <h1>Welcome to Builders</h1>
-        <p>Loading...</p>
-      </div>
+    <div id="splash-screen">
+      <video id="splash-video" autoplay muted playsinline>
+        <source
+          src="imgs/logos/Builders-animation-desktop.mp4"
+          type="video/mp4"
+          media="(min-width: 768px)"
+        />
+        <source
+          src="imgs/logos/Builders-Logo-(1080 x 2400 px).mp4"
+          type="video/mp4"
+          media="(max-width: 768px)"
+        />
+        Your browser does not support the video tag.
+      </video>
     </div>
-    <main>
+    <main id="main-content">
       <header class="header">
         <div class="logo-container">
-          <img src="imgs/logo-img.png" alt="Logo" class="logo" />
+          <img
+            src="imgs/logos/Builders-Logo_main-(transparent).png"
+            alt="Logo"
+            class="logo"
+          />
         </div>
         <nav class="nav">
           <ul class="nav-menu">
@@ -52,8 +65,8 @@
         <div class="auth-dropdowns">
           <button class="log-in">Log In</button>
           <div class="log-in-dropdown">
-            <a href="#">Log in as Vendor</a>
-            <a href="#">Log in as Customer</a>
+            <a href="log-in.html">Log in as Vendor</a>
+            <a href="log-in.html">Log in as Customer</a>
           </div>
           <button class="sign-up">Sign Up</button>
           <div class="sign-up-dropdown">
@@ -132,68 +145,6 @@
           </div>
         </div>
       </div>
-      <div class="faq" id="faq">
-        <div class="faq-h">
-          <h2>Frequently asked questions</h2>
-        </div>
-        <div class="fr-cap">
-          <div class="fr-q">
-            <h4 class="fr-q-q">
-              How quickly can I get my Order using Builders?
-            </h4>
-            <p class="fr-q-a">
-              Fugit, deserunt? Possimus assumenda rerum, odit corporis sunt,
-              cumque aperiam ratione accusamus cupiditate doloribus ullam. Lorem
-              ipsum dolor sit amet consectetur, adipisicing elit. Qui
-              voluptatibus, numquam animi blanditiis impedit omnis corrupti,
-              ratione obcaecati fugiat deleniti quo laudantium reiciendis, iure
-              dolorum inventore quod perferendis? Ullam, dolorum.
-            </p>
-          </div>
-          <div class="fr-q">
-            <h4 class="fr-q-q">
-              Can I customize the appearance of my profile to match my brand?
-            </h4>
-            <p class="fr-q-a">
-              Nam exercitationem molestiae fuga facere sit impedit. Fugit,
-              deserunt? Possimus assumenda rerum, odit corporis sunt, cumque
-              aperiam ratione accusamus cupiditate doloribus ullam.
-            </p>
-          </div>
-          <div class="fr-q">
-            <h4 class="fr-q-q">Can I connect my own website?</h4>
-            <p class="fr-q-a">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              exercitationem molestiae fuga facere sit impedit. Fugit, deserunt?
-              Possimus assumenda rerum, odit corporis sunt, cumque aperiam
-              ratione accusamus cupiditate doloribus ullam. Lorem ipsum dolor
-              sit amet consectetur, adipisicing elit. Sequi quibusdam ab
-              cupiditate voluptas ipsum ad eveniet? Sapiente et libero illum
-              velit alias, doloribus quidem aut eius voluptatum laudantium
-              accusamus ex.
-            </p>
-          </div>
-          <div class="fr-q">
-            <h4 class="fr-q-q">
-              Is there a limit to the number of products or users on Builders?
-            </h4>
-            <p class="fr-q-a">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-              deserunt? Possimus assumenda rerum, odit corporis sunt, cumque
-              aperiam ratione accusamus cupiditate doloribus ullam.
-            </p>
-          </div>
-          <div class="fr-q">
-            <h4 class="fr-q-q">Lorem ipsum dolor sit amet?</h4>
-            <p class="fr-q-a">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              exercitationem molestiae fuga facere sit impedit. Fugit, deserunt?
-              Possimus assumenda rerum, odit corporis sunt, cumque aperiam
-              ratione accusamus cupiditate doloribus ullam.
-            </p>
-          </div>
-        </div>
-      </div>
     </main>
     <footer class="footer">
       <nav class="navbar">
@@ -220,34 +171,32 @@
 
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#" class="dropdown-toggle">Services</a>
+            <a href="#" class="dropdown-toggle">Company</a>
             <ul class="dropdown">
-              <li><a href="#">Overview</a></li>
-              <li><a href="#">Place an order</a></li>
-              <li><a href="#">Be a distributor</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="#">Investor</a></li>
               <li><a href="#">Networking</a></li>
             </ul>
           </li>
         </ul>
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#" class="dropdown-toggle">Help and FAQ</a>
+            <a href="#" class="dropdown-toggle">Help</a>
             <ul class="dropdown">
-              <li><a href="#faq">Services</a></li>
-              <li><a href="#faq">Affiliate</a></li>
-              <li><a href="#faq">Influencer Marketing</a></li>
-              <li><a href="#faq">Networking</a></li>
+              <li><a href="about.html">FAQ</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Safety</a></li>
             </ul>
           </li>
         </ul>
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#" class="dropdown-toggle">About us </a>
+            <a href="#" class="dropdown-toggle">Newsroom </a>
             <ul class="dropdown">
               <li><a href="#">Overview</a></li>
-              <li><a href="#">Affiliate</a></li>
+              <li><a href="#">Blog</a></li>
               <li><a href="#">Influencer Marketing</a></li>
-              <li><a href="#">Networking</a></li>
+              <li><a href="#">Our Offering</a></li>
             </ul>
           </li>
         </ul>

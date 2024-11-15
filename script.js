@@ -39,18 +39,25 @@ document.addEventListener("click", (e) => {
 });
 
 // SPLASH SCREEN
-// Set timeout duration (in milliseconds)
-const timeoutDuration = 3000;
+document.addEventListener("DOMContentLoaded", () => {
+  const splashScreen = document.getElementById("splash-screen");
+  const mainContent = document.getElementById("main-content");
+  const splashVideo = document.getElementById("splash-video");
 
-// Get splash screen and main content elements
-const splashScreen = document.getElementById("splash-screen");
-const mainContent = document.getElementById("main-content");
+  // Hide splash screen after video ends
+  splashVideo.addEventListener("ended", () => {
+    splashScreen.style.display = "none";
+    mainContent.style.display = "block";
+    document.body.style.overflow = "auto"; // Allow scrolling
+  });
 
-// Hide splash screen and show main content after timeout
-setTimeout(() => {
-  splashScreen.style.display = "none";
-  mainContent.style.display = "block";
-}, timeoutDuration);
+  //  Hide splash screen after a timeout (e.g., 5 seconds)
+  // setTimeout(() => {
+  //   splashScreen.style.display = "none";
+  //   mainContent.style.display = "block";
+  //   document.body.style.overflow = "auto"; // Allow scrolling
+  // }, 2000);
+});
 
 // go to home whenever logo is clicked
 
@@ -82,6 +89,40 @@ document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
     }
   });
 });
+
+// just testing form
+document
+  .getElementById("sign-in-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Get the error message element
+    const errorMessage = document.getElementById("error-message");
+
+    // Clear previous error messages
+    errorMessage.textContent = "";
+
+    // Validate input
+    if (!username || !password) {
+      errorMessage.textContent = "Both fields are required.";
+      return;
+    }
+
+    // Simulated authentication
+    if (username === "admin" && password === "password123") {
+      alert("Sign In Successful!");
+      errorMessage.textContent = ""; // Clear any previous error
+    } else {
+      errorMessage.textContent = "Invalid username or password.";
+    }
+  });
+console.log("Username:", username);
+console.log("Password:", password);
+console.log("Error Message:", errorMessage.textContent);
 
 // set current year
 const yearEl = document.querySelector(".year");
