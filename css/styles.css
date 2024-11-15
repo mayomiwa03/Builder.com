@@ -262,9 +262,15 @@ html {
   display: grid;
   grid-template-columns: 70fr 30fr;
 }
+
 .choose-img {
   padding-left: 4rem;
   width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.choose-img:hover {
+  transform: scale(1.1);
 }
 .choice {
   display: flex;
@@ -327,6 +333,11 @@ html {
 }
 .step-img {
   width: 90%;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.step-img:hover {
+  filter: grayscale(0);
 }
 .step-text-box {
   display: flex;

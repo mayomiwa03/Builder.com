@@ -83,17 +83,17 @@
       }
 
       button {
-        max-width: 20rem;
-        width: 100%;
-        padding: 10px;
+        background: linear-gradient(145deg, #f0f0f0, #cacaca);
         border: none;
-        border-radius: 4px;
-        background: #2f9e44;
-        color: white;
-        font-size: 16px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+        padding: 15px 30px;
+        font-size: 1rem;
         cursor: pointer;
-        transition: background 0.3s ease;
-        margin-top: 3rem;
+        transition: box-shadow 0.3s ease;
+      }
+      button:active {
+        box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
       }
 
       button:hover {
