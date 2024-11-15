@@ -7,6 +7,9 @@
     background-image: url("../imgs/logos/splash-img.jpg");
     background-position: cover;
   }
+  .logo {
+    width: 40px;
+  }
   .nav-menu {
     display: none;
     position: absolute;

@@ -104,6 +104,7 @@ document
     // Get input values
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
 
     // Get the error message element
     const errorMessage = document.getElementById("error-message");
@@ -117,6 +118,10 @@ document
       return;
     }
 
+    if (!phoneNumber || !password) {
+      errorMessage.textContent = "Both fields are required.";
+      return;
+    }
     // Simulated authentication
     if (username === "admin" && password === "password123") {
       alert("Sign In Successful!");
@@ -125,9 +130,6 @@ document
       errorMessage.textContent = "Invalid username or password.";
     }
   });
-console.log("Username:", username);
-console.log("Password:", password);
-console.log("Error Message:", errorMessage.textContent);
 
 // set current year
 const yearEl = document.querySelector(".year");
