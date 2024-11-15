@@ -5,6 +5,7 @@
 
   #splash-screen {
     background-image: url("../imgs/logos/splash-img.jpg");
+    background-position: cover;
   }
   .nav-menu {
     display: none;
