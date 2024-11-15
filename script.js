@@ -1,6 +1,8 @@
 "use strict";
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
+const navItems = document.querySelectorAll(".nav-menu li"); // Select all list items
+
 const logInButton = document.querySelector(".log-in");
 const logInDropdown = document.querySelector(".log-in-dropdown");
 const signUpButton = document.querySelector(".sign-up");
@@ -11,7 +13,18 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
 });
+// Close nav when clicking outside list items
+document.addEventListener("click", (event) => {
+  const isClickOnHamburger = hamburger.contains(event.target);
+  const isClickOnNavItem = Array.from(navItems).some((item) =>
+    item.contains(event.target)
+  );
 
+  if (!isClickOnHamburger && !isClickOnNavItem) {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  }
+});
 // Log in dropdown toggle
 logInButton.addEventListener("click", () => {
   logInDropdown.classList.toggle("active");
