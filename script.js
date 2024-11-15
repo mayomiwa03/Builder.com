@@ -39,25 +39,17 @@ document.addEventListener("click", (e) => {
 });
 
 // SPLASH SCREEN
-document.addEventListener("DOMContentLoaded", () => {
-  const splashScreen = document.getElementById("splash-screen");
-  const mainContent = document.getElementById("main-content");
-  const splashVideo = document.getElementById("splash-video");
+const splashVideo = document.getElementById("splash-video");
 
-  // Hide splash screen after video ends
-  splashVideo.addEventListener("ended", () => {
-    splashScreen.style.display = "none";
-    mainContent.style.display = "block";
-    document.body.style.overflow = "auto"; // Allow scrolling
-  });
-
-  //  Hide splash screen after a timeout (e.g., 5 seconds)
-  // setTimeout(() => {
-  //   splashScreen.style.display = "none";
-  //   mainContent.style.display = "block";
-  //   document.body.style.overflow = "auto"; // Allow scrolling
-  // }, 2000);
+splashVideo.addEventListener("ended", () => {
+  document.getElementById("splash-screen").style.display = "none";
+  document.getElementById("main-content").style.display = "block";
 });
+
+setTimeout(() => {
+  document.getElementById("splash-screen").style.display = "none";
+  document.getElementById("main-content").style.display = "block";
+}, 5000); // Backup timeout
 
 // go to home whenever logo is clicked
 
