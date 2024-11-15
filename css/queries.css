@@ -3,6 +3,9 @@
     font-size: 50%;
   }
 
+  #splash-screen {
+    background-image: url("../imgs/logos/splash-img.jpg");
+  }
   .nav-menu {
     display: none;
     position: absolute;

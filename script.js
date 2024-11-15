@@ -49,7 +49,7 @@ splashVideo.addEventListener("ended", () => {
 setTimeout(() => {
   document.getElementById("splash-screen").style.display = "none";
   document.getElementById("main-content").style.display = "block";
-}, 5000); // Backup timeout
+}, 3000); // Backup timeout
 
 // go to home whenever logo is clicked
 
