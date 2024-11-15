@@ -77,10 +77,39 @@
         border-radius: 4px;
         font-size: 14px;
         margin-bottom: 1rem;
+        outline: none;
       }
+      input:focus {
+        box-shadow: 0 0 10px hsla(131, 50%, 50%, 0.5);
+        border-color: #2f9e44;
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20%,
+        60% {
+          transform: translateX(-10px);
+        }
+        40%,
+        80% {
+          transform: translateX(10px);
+        }
+      }
+
+      input:invalid {
+        border-color: #2f9e44;
+        animation: shake 0.4s ease;
+      }
+
       input::placeholder {
-        font-style: italic;
-        color: #bbb;
+        color: #aaa;
+        transition: opacity 0.3s ease;
+      }
+
+      input:focus::placeholder {
+        opacity: 0;
       }
 
       button {
@@ -113,7 +142,7 @@
         font-weight: 600;
         position: absolute;
         top: 2rem;
-        left: 2rem;
+        left: 1.5rem;
         text-decoration: none;
         color: #333;
       }
