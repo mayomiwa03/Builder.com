@@ -135,3 +135,30 @@ document
 const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
+
+// grayscale for mobile
+// Select all images with the class 'grayscale'
+const images = document.querySelectorAll(".step-img");
+
+// Create an Intersection Observer
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Add the 'in-view' class when the image enters the viewport
+        entry.target.classList.add("in-view");
+      } else {
+        // Optionally remove the 'in-view' class when the image exits the viewport
+        entry.target.classList.remove("in-view");
+      }
+    });
+  },
+  {
+    threshold: 0.7, // Trigger when 70% of the image is visible
+  }
+);
+
+// Observe each image
+images.forEach((image) => {
+  observer.observe(image);
+});

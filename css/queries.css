@@ -119,6 +119,9 @@
     row-gap: 7rem;
   }
 
+  .step-img.in-view {
+    filter: grayscale(0%);
+  }
   .fr-q {
     flex-direction: column;
     padding: 2 1rem;

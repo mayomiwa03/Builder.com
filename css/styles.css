@@ -334,7 +334,7 @@ html {
 .step-img {
   width: 90%;
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease-in-out;
 }
 .step-img:hover {
   filter: grayscale(0);
