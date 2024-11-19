@@ -165,10 +165,10 @@ html {
       rgba(34, 34, 34, 0.6),
       rgba(34, 34, 34, 0.6)
     ),
-    url("../imgs/gif-bg-img.gif");
+    url("../imgs/bg-img-2.jpg");
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -390,7 +390,34 @@ html {
 .fr-q-a {
   width: 100%;
 }
+/* BENEFIT SECTION */
+.benefits-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: none;
+  margin-bottom: 10rem;
+}
 
+.lottie-container {
+  overflow-y: hidden;
+}
+.benefits-lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.benefit-opt {
+  font-size: 1.3rem;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 2rem;
+}
+.benefit-opt:hover {
+  transform: translateY(-2px);
+}
 /* footer */
 .footer {
 }

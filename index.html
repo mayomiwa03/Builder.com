@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -21,7 +22,18 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <link rel="icon" href="imgs/fav-icon.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.1/lottie.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <link rel="icon" href="imgs/logos/fav-icon.png" />
   </head>
   <body>
     <!-- Splash screen -->
@@ -145,6 +157,34 @@
           </div>
         </div>
       </div>
+      <div class="benefits">
+        <h2 class="heading-secondary">Benefits of being our Vendor</h2>
+
+        <div class="benefits-container">
+          <div
+            class="lottie-container"
+            style="width: 300px; height: 300px"
+          ></div>
+          <div class="benefits-lists">
+            <div class="benefit-opt">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            </div>
+            <div class="benefit-opt">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            </div>
+            <div class="benefit-opt">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            </div>
+            <div class="benefit-opt">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer">
       <nav class="navbar">
@@ -207,5 +247,16 @@
       </nav>
     </footer>
     <script defer src="script.js"></script>
+    <script>
+      const container = document.querySelector(".lottie-container");
+
+      const animation = lottie.loadAnimation({
+        container: container,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://lottie.host/a03fa6c8-ef07-4878-8670-bc88aea4da44/ZPVuuI9zPX.json", // Replace with your Lottie JSON URL
+      });
+    </script>
   </body>
 </html>

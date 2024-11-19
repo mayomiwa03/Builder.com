@@ -55,6 +55,7 @@
     right: 2rem;
     border: solid 1px #fff;
     overflow: hidden;
+    z-index: 10;
   }
 
   .hamburger span {
@@ -119,7 +120,7 @@
     row-gap: 7rem;
   }
 
-  .step-img.in-view {
+  .step-img {
     filter: grayscale(0%);
   }
   .fr-q {
