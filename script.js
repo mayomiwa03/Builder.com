@@ -52,18 +52,29 @@ document.addEventListener("click", (e) => {
 });
 
 // SPLASH SCREEN
-const splashVideo = document.getElementById("splash-video");
+document.addEventListener("DOMContentLoaded", () => {
+  const splashScreen = document.getElementById("splash-screen");
+  const splashVideo = document.getElementById("splash-video");
+  const mainContent = document.getElementById("main-content");
 
-splashVideo.addEventListener("ended", () => {
-  document.getElementById("splash-screen").style.display = "none";
-  document.getElementById("main-content").style.display = "block";
+  // Check if the splash screen has already been shown
+  if (!sessionStorage.getItem("splashShown")) {
+    splashScreen.style.display = "flex";
+    mainContent.style.display = "none";
+
+    // Listen for the video to finish
+    splashVideo.addEventListener("ended", () => {
+      splashScreen.style.display = "none";
+      mainContent.style.display = "block";
+
+      // Set a flag in session storage
+      sessionStorage.setItem("splashShown", "true");
+    });
+  } else {
+    splashScreen.style.display = "none";
+    mainContent.style.display = "block";
+  }
 });
-
-setTimeout(() => {
-  document.getElementById("splash-screen").style.display = "none";
-  document.getElementById("main-content").style.display = "block";
-}, 3000); // Backup timeout
-
 // go to home whenever logo is clicked
 
 const home = document.querySelector(".logo");
