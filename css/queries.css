@@ -37,7 +37,7 @@
     padding-left: 1rem;
     list-style: none;
     margin-bottom: 1rem;
-    font-weight: 600;
+
     width: 22rem;
   }
 
@@ -72,7 +72,8 @@
   }
 
   .nav-menu li {
-    font-size: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
   }
   .hero-text-wrap {
     padding: 20rem 3rem 5rem 3rem;
@@ -176,6 +177,10 @@
   }
 
   .copyright {
+    left: 30%;
+  }
+  .signature {
+    left: 40%;
   }
 }
 @media (max-width: 480px) {

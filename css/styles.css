@@ -168,7 +168,7 @@ html {
     url("../imgs/bg-img-2.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,6 +234,10 @@ html {
   overflow: hidden;
 }
 .bth {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  font-weight: 600;
   text-decoration: none;
   color: #333;
   font-size: 1.8rem;
@@ -265,7 +269,7 @@ html {
 
 .choose-img {
   padding-left: 4rem;
-  width: 100%;
+  width: 30%;
   transition: transform 0.3s ease;
 }
 
@@ -333,6 +337,7 @@ html {
 }
 .step-img {
   width: 90%;
+
   filter: grayscale(100%);
   transition: filter 0.3s ease-in-out;
 }
@@ -350,6 +355,7 @@ html {
   color: #ddd;
   margin-bottom: 2rem;
 }
+
 .subhead {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -395,28 +401,57 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow: none;
   margin-bottom: 10rem;
 }
 
 .lottie-container {
   overflow-y: hidden;
+  transition: transform 0.5s ease;
+}
+.lottie-container:hover {
+  transform: scale(1.25);
 }
 .benefits-lists {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+
+  gap: 2.5rem;
+  line-height: 1.4;
+}
+.b-w {
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: start; */
+  text-align: center;
+  /* max-width: 550px; */
 }
 .benefit-opt {
   font-size: 1.3rem;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
-  gap: 2rem;
+  /* justify-content: center; */
+  text-align: center;
+  gap: 0.5rem;
 }
 .benefit-opt:hover {
   transform: translateY(-2px);
+}
+.benefit-opt ion-icon:hover {
+  color: #2f9e44;
+}
+.b-w p {
+  font-size: 1.3rem;
+  max-width: 60%;
+}
+.check-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 /* footer */
 .footer {
@@ -469,6 +504,18 @@ html {
   font-size: 1.2rem;
 
   position: absolute;
+  bottom: 4rem;
+  left: 40%;
+}
+.signature {
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  font-size: 1.2rem;
   bottom: 1rem;
-  padding-left: 35%;
+  left: 45%;
+}
+.signature a {
+  color: #fff;
+  text-decoration: none;
 }
