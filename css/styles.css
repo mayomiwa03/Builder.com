@@ -206,9 +206,11 @@ html {
   /* z-index: 1; */
 }
 .hero-btn:hover {
-  background-color: #fff;
+  border: #2f9e44;
 
-  color: #000;
+  background-color: #2f9e44;
+
+  color: #fff;
   font-weight: 700;
 }
 .hero-btn::before {
