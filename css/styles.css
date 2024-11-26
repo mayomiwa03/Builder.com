@@ -13,6 +13,7 @@ html {
 }
 
 .body {
+  font-size: 1.8rem;
 }
 #splash-screen {
   position: fixed;
@@ -237,12 +238,12 @@ html {
 }
 .bth {
   position: absolute;
-  top: 2rem;
-  left: 1rem;
+  top: 3rem;
+  left: 2rem;
   font-weight: 600;
   text-decoration: none;
   color: #333;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 .cta {
   padding-top: 10rem;
@@ -359,11 +360,11 @@ html {
 }
 
 .subhead {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 .step-description {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 1.8;
 }
 /* fAQ */
@@ -447,8 +448,11 @@ html {
 .benefit-opt ion-icon:hover {
   color: #2f9e44;
 }
+.benefit-opt h2 {
+  font-size: 2rem;
+}
 .b-w p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   max-width: 60%;
 }
 .check-icon {
@@ -477,11 +481,11 @@ html {
 }
 .dropdown a {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .dropdown-toggle {
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 .social-link {
