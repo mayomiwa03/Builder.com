@@ -238,8 +238,8 @@ html {
 }
 .bth {
   position: absolute;
-  top: 3rem;
-  left: 2rem;
+  top: 2rem;
+  left: 1rem;
   font-weight: 600;
   text-decoration: none;
   color: #333;
