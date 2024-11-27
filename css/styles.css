@@ -38,7 +38,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 10rem;
   /* background-color: #2f9e44; */
   color: #fff;
 }
@@ -175,7 +175,7 @@ html {
   align-items: center;
 }
 .hero-text-wrap {
-  padding: 30rem 10rem 6rem 10rem;
+  padding: 25rem 10rem 0 10rem;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -323,7 +323,7 @@ html {
 /* service-sec */
 .service-sec {
   margin: 9rem auto;
-  max-width: 130rem;
+  max-width: 120rem;
 }
 .serv-container {
   display: grid;
@@ -432,10 +432,11 @@ html {
 .footer {
 }
 .navbar {
+  margin: 0;
   background-color: #333;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 2rem 5rem 10rem 20rem;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   justify-content: space-between;
 
   position: relative;
@@ -483,14 +484,6 @@ html {
   left: 40%;
 }
 .signature {
-  color: #fff;
-  position: absolute;
-  text-align: center;
-  font-size: 1.2rem;
-  bottom: 1rem;
-  left: 45%;
-}
-.signature a {
   color: #fff;
   text-decoration: none;
 }
