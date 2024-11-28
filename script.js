@@ -146,3 +146,45 @@ document
 const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
+
+// /////////////////////////////
+const texts = ["Whatever", "Whenever", "Wherever"];
+const typingSpeed = 100; // ms
+const deletingSpeed = 100; // ms
+const pauseDuration = 2000; // ms
+
+let index = 0; // Tracks the current word
+let textIndex = 0; // Tracks the character position in the word
+let typing = true; // Indicates if typing or deleting is happening
+
+function animate() {
+  const textElement = document.getElementById("typing-animation");
+  const currentText = texts[index];
+
+  if (typing) {
+    // Typing phase
+    textElement.textContent = currentText.slice(0, textIndex + 1);
+    textIndex++;
+
+    if (textIndex === currentText.length) {
+      typing = false; // Switch to deleting phase
+      setTimeout(animate, pauseDuration); // Wait before deleting
+      return; // Stop current loop
+    }
+  } else {
+    // Deleting phase
+    textElement.textContent = currentText.slice(0, textIndex);
+    textIndex--;
+
+    if (textIndex === -1) {
+      typing = true; // Switch to typing phase
+      index = (index + 1) % texts.length; // Move to the next word
+    }
+  }
+
+  // Recursively call animate with appropriate speed
+  setTimeout(animate, typing ? typingSpeed : deletingSpeed);
+}
+
+// Start the animation
+animate();
