@@ -20,6 +20,22 @@
     padding: 2rem 5rem 10rem 15rem;
   }
   .copyright {
+    left: 35%;
+  }
+}
+@media (max-width: 1100px) {
+  .copyright {
+    left: 30%;
+  }
+  .navbar {
+    padding: 2rem 10rem 10rem 8rem;
+  }
+}
+@media (max-width: 1000px) {
+  .navbar {
+    padding: 2rem 10rem 10rem 8rem;
+  }
+  .copyright {
     left: 25%;
   }
 }
@@ -164,7 +180,7 @@
   .navbar {
     padding: 3rem 1rem 7rem 1rem;
     flex-direction: column;
-    padding-bottom: 18rem;
+    padding-bottom: 16rem;
     /* padding-top: 3rem; */
     align-items: start;
   }
@@ -205,16 +221,21 @@
   }
   .socialss {
     position: absolute;
-    bottom: 12rem;
+    bottom: 10rem;
     left: 3rem;
   }
 
   .copyright {
-    left: 20%;
-  }
-  .signature {
-    left: 40%;
+    left: 40rem;
   }
 }
 @media (max-width: 480px) {
+  .copyright {
+    left: 10rem;
+  }
+}
+@media (max-width: 375px) {
+  .copyright {
+    left: 7rem;
+  }
 }
