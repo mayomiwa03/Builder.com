@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIgn Up</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+
+.bth{
+  position: absolute;
+  top: 2rem;
+  left :2rem;
+  font-size: 1.2rem;
+}
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+      }
+
+      .signup-container {
+        background: #fff;
+        padding: 20px 20px 65px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+form{
+  padding: 0 2rem;
+  
+}
+      .form-group {
+        margin-bottom: 15px;
+        max-width: 50rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        background-color: #ddd;
+        width: 600px;
+
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus,
+      input[type="password"]:focus {
+        box-shadow: 0 0 10px hsla(131, 50%, 50%, 0.5);
+        border: 1px solid #2f9e44;
+      }
+      .password-hint {
+        font-size: 12px;
+        color: #666;
+        margin-top: 10px;
+        padding-left: 1.5rem;
+      }
+      .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+    padding-right: 40px; /* Add space for the icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    user-select: none;
+}
+
+
+    /* Hide the default checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the custom checkbox */
+.terms-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.terms-label input[type="checkbox"] + span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 2px solid #2f9e44;
+    border-radius: 4px; /* Rounded corners for the checkbox */
+    background-color: white;
+    margin-right: 10px;
+    margin-left: 3px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+/* Add the green tick when checked */
+.terms-label input[type="checkbox"]:checked + span {
+    background-color: #fff;
+    border-color: #2f9e44;
+}
+
+.terms-label input[type="checkbox"]:checked + span::after {
+    content: '✔'; /* Unicode for the checkmark */
+    color: #2f9e44;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+}
+.terms-link{
+  text-decoration: none;
+  color: #2f9e44;
+}
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #2f9e44;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: not-allowed;
+      }
+
+      button:enabled {
+        cursor: pointer;
+        background-color: #2f9e44;
+      }
+
+      .or-div{
+        margin: 4rem 0 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:#ddd;
+      }
+      .or{
+        color: #333;
+      }
+      .login-options {
+    margin: 0 0 5rem 0;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 20rem;
+    padding : 0 3rem;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    /* font-weight: bold; */
+    width: 100%;
+}
+
+.email-btn {
+    background-color: #40c057;
+    color: white;
+}
+
+.email-btn:hover {
+    background-color: #2f9e44;
+}
+
+.facebook-btn {
+    background-color: #40c057 ;
+    color: white;
+}
+
+.facebook-btn:hover {
+    background-color: #2f9e44 ;
+}
+
+      @media (max-width: 768px) {
+        html {
+    font-size: 83%;
+  }
+  h2 {
+      
+        margin-bottom: 4rem;
+      }
+      .signup-container {
+        height : 100vh;
+        
+      }
+      .form-group {
+        margin-bottom: 2rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="password"] {
+        width: 353px;
+      }
+      .login-options {
+        gap: 2rem;
+      }
+      .login-btn {
+        font-size: 1.3rem;
+      }
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="bth"> &lt;back </div>
+    <div class="signup-container">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <div class="form-group">
+          <label for="fullname">Full Name:</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
+        <div class="form-group password-group">
+          <label for="password">Password:</label>
+          <div class="password-container">
+              <input type="password" id="password" name="password" placeholder="Enter your password" required>
+              <ion-icon id="toggle-password" class="toggle-password" name="eye-outline"></ion-icon>
+          </div>
+
+          <p class="password-hint">
+            Password must be at least 8 characters long,</br> include an uppercase</br>
+            letter, and a special character.
+          </p>
+        </div>
+
+        
+      
+
+        <div class="form-group">
+          <label for="terms" class="terms-label">
+              <input type="checkbox" id="terms" name="terms" required>
+              <span class="custom-checkbox"></span>
+              I agree to the <a class="terms-link" href="#">Terms and Conditions</a>
+          </label>
+      </div>
+      
+      
+        <button type="submit" id="signup-btn" disabled>Sign Up</button>
+      </form>
+<div class="or-div">
+
+  <p > ----------------------  <span class="or"> Or </span>  ----------------------</p>
+</div>
+
+      <div class="login-options">
+        <button id="login-email" class="login-btn email-btn">Log in with Email</button>
+        <button id="login-facebook" class="login-btn facebook-btn">Log in with Facebook</button>
+    </div>
+    </div>
+    <script>
+ document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("signup-form");
+    const fullname = document.getElementById("fullname");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const password = document.getElementById("password");
+    const terms = document.getElementById("terms");
+    const signupBtn = document.getElementById("signup-btn");
+    const togglePassword = document.getElementById("toggle-password");
+    const loginEmailBtn = document.getElementById("login-email");
+    const loginFacebookBtn = document.getElementById("login-facebook");
+
+    // Password validation regex
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z0-9]).{8,}$/;
+
+    // Enable or disable the signup button based on validation
+    const validateForm = () => {
+        if (
+            fullname.value.trim() &&
+            email.value.trim() &&
+            phone.value.trim() &&
+            passwordRegex.test(password.value) &&
+            terms.checked
+        ) {
+            signupBtn.disabled = false;
+        } else {
+            signupBtn.disabled = true;
+        }
+    };
+
+    // Add event listeners for form inputs
+    [fullname, email, phone, password, terms].forEach((input) => {
+        input.addEventListener("input", validateForm);
+    });
+
+    // Toggle password visibility
+    togglePassword.addEventListener("click", () => {
+        const isPasswordVisible = password.getAttribute("type") === "text";
+        password.setAttribute("type", isPasswordVisible ? "password" : "text");
+        togglePassword.setAttribute("name", isPasswordVisible ? "eye-outline" : "eye-off-outline");
+    });
+
+    // Prevent default form submission for demo
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        alert("Signup successful!");
+    });
+
+    // Log in with Email button behavior
+    loginEmailBtn.addEventListener("click", () => {
+        alert("Redirecting to Email Login...");
+    });
+
+    // Log in with Facebook button behavior
+    loginFacebookBtn.addEventListener("click", () => {
+        alert("Redirecting to Facebook Login...");
+    });
+});
+
+    </script>
+  </body>
+</html>
