@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +26,7 @@
 }
 
       body {
-        font-family: Arial, sans-serif;
+        /* font-family: Arial, sans-serif; */
         background-color: #f4f4f9;
         margin: 0;
         padding: 0;
@@ -72,37 +73,44 @@ form{
         margin-bottom: 5px;
         font-weight: bold;
       }
-
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"],
-      input[type="password"] {
-        width: 95%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 20px;
-        font-size: 14px;
-        outline: none;
-        transition: border-color 0.3s ease;
-        background-color: #ddd;
-        width: 600px;
-
-      }
-      input[type="text"]:focus,
-      input[type="email"]:focus,
-      input[type="tel"]:focus,
-      input[type="password"]:focus {
-        box-shadow: 0 0 10px hsla(131, 50%, 50%, 0.5);
-        border: 1px solid #2f9e44;
-        background-color: #ddd;
-
-      }
-      input:-webkit-autofill {
-    box-shadow: 0 0 0px 1000px #ddd inset !important; /* Force background to #ddd */
-    -webkit-box-shadow: 0 0 0px 1000px #ddd inset !important;
-    -webkit-text-fill-color: #333; /* Ensure text color is visible */
-    transition: background-color 3000s ease-in-out 0s;
+/* General input styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    background-color: #ddd; /* Default background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
+
+/* Highlight only the focused input */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 10px #2f9e44; /* Green highlight */
+    background-color: #f7fff7; /* Slightly lighter shade for focus */
+}
+
+/* Autofill styling */
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px #ddd inset !important; /* Force autofill background */
+    -webkit-box-shadow: 0 0 0px 1000px #ddd inset !important;
+    -webkit-text-fill-color: #333; /* Ensure text color remains readable */
+    transition: background-color 3000s ease-in-out 0s; /* Smooth transition */
+}
+
+/* Autofill focus highlight */
+input:-webkit-autofill:focus {
+    box-shadow: 0 0 10px #2f9e44 !important; /* Match focus style for autofilled inputs */
+    background-color: #f7fff7 !important; /* Match focus background for autofilled inputs */
+}
+
       .password-hint {
         font-size: 12px;
         color: #666;
@@ -230,6 +238,7 @@ input[type="checkbox"] {
     color: #2f9e44 ;
 }
 
+
 @media (max-width: 850px) {
   .signup-container {
         margin-top: 0;
@@ -273,9 +282,22 @@ input[type="checkbox"] {
       .login-options {
         gap: 2rem;
       }
-      .login-btn {
-        /* font-size: 1.3rem; */
-      }
+     /* Error message styling */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Valid and invalid input borders */
+input.valid {
+  border: 1px solid green;
+}
+
+input.invalid {
+  border: 1px solid red;
+}
+
 }
 
 @media (max-width: 430px) {
@@ -354,7 +376,7 @@ input[type="checkbox"] {
             type="tel"
             id="phone"
             name="phone"
-            placeholder="Enter your phone number"
+            placeholder="Enter your phone number" 
             required
           />
         </div>
@@ -397,109 +419,112 @@ input[type="checkbox"] {
     </div>
     </div>
     <script>
- document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("signup-form");
-    const fullname = document.getElementById("fullname");
-    const email = document.getElementById("email");
-    const phone = document.getElementById("phone");
-    const password = document.getElementById("password");
-    const terms = document.getElementById("terms");
-    const signupBtn = document.getElementById("signup-btn");
-    const togglePassword = document.getElementById("toggle-password");
-    const loginEmailBtn = document.getElementById("login-email");
-    const loginFacebookBtn = document.getElementById("login-facebook");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("signup-form");
+  const fullname = document.getElementById("fullname");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const password = document.getElementById("password");
+  const terms = document.getElementById("terms");
+  const signupBtn = document.getElementById("signup-btn");
+  const togglePassword = document.getElementById("toggle-password");
 
-
-  
- 
   // Validation patterns
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email pattern
-    const phoneRegex = /^[0-9]+$/; // Numbers only
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z0-9]).{8,}$/; // Password rules
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[0-9]+$/;
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z0-9]).{8,}$/;
 
-    // Apply validation styles
-    const applyValidationStyles = (input, isValid) => {
-        input.style.boxShadow = isValid
-            ? "0 0 5px 2px green" // Valid input
-            : "0 0 5px 2px red"; // Invalid input
-    };
+  // Show error message
+  const showError = (input, message) => {
+    let errorElement = input.parentNode.querySelector(".error-message");
+    if (!errorElement) {
+      errorElement = document.createElement("div");
+      errorElement.className = "error-message";
+      input.parentNode.appendChild(errorElement);
+    }
+    errorElement.textContent = message;
+    input.classList.add("invalid");
+  };
 
-    // Validation functions
-    const validateFullname = () => {
-        const isValid = /^[a-zA-Z\s]+$/.test(fullname.value.trim());
-        applyValidationStyles(fullname, isValid);
-        return isValid;
-    };
+  // Remove error message
+  const removeError = (input) => {
+    const errorElement = input.parentNode.querySelector(".error-message");
+    if (errorElement) {
+      errorElement.remove();
+    }
+    input.classList.remove("invalid");
+  };
 
-    const validateEmail = () => {
-        const isValid = emailRegex.test(email.value.trim());
-        applyValidationStyles(email, isValid);
-        return isValid;
-    };
+  // Validate individual fields
+  const validateFullname = () => {
+    const isValid = /^[a-zA-Z\s]+$/.test(fullname.value.trim());
+    isValid ? removeError(fullname) : showError(fullname, "Full name must contain only letters and spaces.");
+    return isValid;
+  };
 
-    const validatePhone = () => {
-        const isValid = phoneRegex.test(phone.value.trim());
-        applyValidationStyles(phone, isValid);
-        return isValid;
-    };
+  const validateEmail = () => {
+    const isValid = emailRegex.test(email.value.trim());
+    isValid ? removeError(email) : showError(email, "Enter a valid email address.");
+    return isValid;
+  };
 
-    const validatePassword = () => {
-        const isValid = passwordRegex.test(password.value);
-        applyValidationStyles(password, isValid);
-        return isValid;
-    };
+  const validatePhone = () => {
+    const isValid = phoneRegex.test(phone.value.trim());
+    isValid ? removeError(phone) : showError(phone, "Phone number must contain only numbers.");
+    return isValid;
+  };
 
- // Validate all fields and enable/disable the signup button
- const validateForm = () => {
-        const isFullnameValid = validateFullname();
-        const isEmailValid = validateEmail();
-        const isPhoneValid = validatePhone();
-        const isPasswordValid = validatePassword();
-        const isTermsAccepted = validateTerms();
+  const validatePassword = () => {
+    const isValid = passwordRegex.test(password.value);
+    isValid ? removeError(password) : showError(password,);
+    return isValid;
+  };
 
-        signupBtn.disabled = !(
-            isFullnameValid &&
-            isEmailValid &&
-            isPhoneValid &&
-            isPasswordValid &&
-            isTermsAccepted
-        );
-    };
+  const validateTerms = () => {
+    if (terms.checked) {
+      removeError(terms);
+      return true;
+    } else {
+      showError(terms, "You must agree to the terms.");
+      return false;
+    }
+  };
 
-      // Add event listeners for validation
-      fullname.addEventListener("input", validateForm);
-    email.addEventListener("input", validateForm);
-    phone.addEventListener("input", validateForm);
-    password.addEventListener("input", validateForm);
-    terms.addEventListener("change", validateForm);
+  // Validate the entire form
+  const validateForm = () => {
+    const isFullnameValid = validateFullname();
+    const isEmailValid = validateEmail();
+    const isPhoneValid = validatePhone();
+    const isPasswordValid = validatePassword();
+    const isTermsValid = validateTerms();
+    signupBtn.disabled = !(isFullnameValid && isEmailValid && isPhoneValid && isPasswordValid && isTermsValid);
+  };
 
-    const validateTerms = () => terms.checked;
-      // Ensure password is hidden by default
-      password.setAttribute("type", "password");
-    // Toggle password visibility
-    togglePassword.addEventListener("click", () => {
-        const isPasswordVisible = password.getAttribute("type") === "text";
-        password.setAttribute("type", isPasswordVisible ? "password" : "text");
-        togglePassword.setAttribute("name", isPasswordVisible ? "eye-outline" : "eye-off-outline");
-    });
+  // Add event listeners
+  fullname.addEventListener("input", validateFullname);
+  email.addEventListener("input", validateEmail);
+  phone.addEventListener("input", validatePhone);
+  password.addEventListener("input", validatePassword);
+  terms.addEventListener("change", validateTerms);
 
-    // Prevent default form submission for demo
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        alert("Signup successful!");
-    });
+  form.addEventListener("input", validateForm);
 
-    // Log in with Email button behavior
-    loginEmailBtn.addEventListener("click", () => {
-        alert("Redirecting to Email Login...");
-    });
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!signupBtn.disabled) {
+      // Navigate to the new page when all criteria are met
+      window.location.href = "dashboard.html";
+    }
+  });
 
-    
-    // Log in with Facebook button behavior
-    loginFacebookBtn.addEventListener("click", () => {
-        alert("Redirecting to Facebook Login...");
-    });
+  // Toggle password visibility
+  togglePassword.addEventListener("click", () => {
+    const isPasswordVisible = password.getAttribute("type") === "text";
+    password.setAttribute("type", isPasswordVisible ? "password" : "text");
+    togglePassword.setAttribute("name", isPasswordVisible ? "eye-outline" : "eye-off-outline");
+  });
 });
+
 
     </script>
   </body>

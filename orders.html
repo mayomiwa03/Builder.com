@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders Table</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .table-wrapper {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      .table thead th {
+        background-color: #f1f3f5;
+      }
+      .status-badge {
+        padding: 0.5rem;
+        border-radius: 5px;
+      }
+      .status-pending {
+        background-color: #f0ad4e;
+        color: white;
+      }
+      .status-paid {
+        background-color: #28a745;
+        color: white;
+      }
+      .status-cancelled {
+        background-color: #dc3545;
+        color: white;
+      }
+      .pagination-wrapper {
+        padding-top: 10px;
+      }
+      .search-wrapper {
+        margin-bottom: 20px;
+      }
+      /* Mobile responsive styles */
+      @media (max-width: 768px) {
+        .table-wrapper {
+          padding: 15px;
+        }
+
+        .table th,
+        .table td {
+          font-size: 12px;
+        }
+
+        .nav-link {
+          font-size: 14px;
+        }
+
+        .pagination-wrapper {
+          font-size: 12px;
+        }
+
+        .status-badge {
+          font-size: 12px;
+          padding: 0.4rem;
+        }
+        .nav-link,
+        .page-link {
+          color: #333;
+        }
+        .nav-link {
+          font-weight: 700;
+        }
+      }
+
+      /* Horizontal scrolling for smaller screens */
+      @media (max-width: 576px) {
+        .table-wrapper {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="d-flex justify-content-between align-items-center search-wrapper"
+          >
+            <h4>Orders</h4>
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search"
+                style="width: 200px"
+              />
+              <button class="btn btn-outline-success ms-2">Download CSV</button>
+            </div>
+          </div>
+
+          <div class="table-wrapper p-3">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    href="#"
+                    onclick="filterOrders('all')"
+                    >All</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="filterOrders('paid')"
+                    >Paid</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="filterOrders('pending')"
+                    >Pending</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    onclick="filterOrders('cancelled')"
+                    >Cancelled</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <table class="table table-bordered" id="orderTable">
+              <thead>
+                <tr>
+                  <th class="d-none d-md-table-cell">Order</th>
+                  <th>Product</th>
+                  <th>Customer</th>
+                  <th class="d-none d-md-table-cell">Date</th>
+                  <th>Status</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows will be populated by JavaScript -->
+              </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div
+              class="pagination-wrapper d-flex justify-content-between align-items-center"
+            >
+              <nav>
+                <ul class="pagination" id="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" onclick="changePage('prev')"
+                      >Previous</a
+                    >
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#" onclick="changePage(1)">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" onclick="changePage(2)">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" onclick="changePage(3)">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" onclick="changePage('next')"
+                      >Next</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+              <!-- <span>Designed with ❤️ by Mayomiwa</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sample order data
+      const orders = [
+        {
+          order: "#15346",
+          product: "Lorem ipsum dolor sit amet",
+          customer: "John Sanders",
+          date: "17 Oct 2:16 PM",
+          status: "Paid",
+          total: "$259.35",
+        },
+        {
+          order: "#15345",
+          product: "Consectetur adipiscing elit",
+          customer: "Dylan Ambrose",
+          date: "16 Oct 03:16 AM",
+          status: "Pending",
+          total: "$96.20",
+        },
+        {
+          order: "#15344",
+          product: "Pellentesque diam imperdiet",
+          customer: "Teresa Holland",
+          date: "16 Oct 01:16 AM",
+          status: "Paid",
+          total: "$123.00",
+        },
+        {
+          order: "#15343",
+          product: "Vestibulum a accumsan lectus",
+          customer: "Jayden Massey",
+          date: "15 Oct 08:07 PM",
+          status: "Paid",
+          total: "$199.00",
+        },
+        {
+          order: "#15342",
+          product: "Justo feugiat neque",
+          customer: "Reina Brooks",
+          date: "12 Oct 04:23 PM",
+          status: "Cancelled",
+          total: "$59.00",
+        },
+        {
+          order: "#15341",
+          product: "Morbi vulputate lacnia neque",
+          customer: "Raymond Atkins",
+          date: "11 Oct 11:18 AM",
+          status: "Paid",
+          total: "$678.26",
+        },
+        // Add more orders as needed...
+      ];
+
+      const rowsPerPage = 3;
+      let currentPage = 1;
+      let filteredOrders = [...orders]; // Initially display all orders
+
+      // Function to display orders on the current page
+      function displayOrders(page) {
+        const startIndex = (page - 1) * rowsPerPage;
+        const endIndex = page * rowsPerPage;
+        const ordersToDisplay = filteredOrders.slice(startIndex, endIndex);
+
+        const tableBody = document.querySelector("#orderTable tbody");
+        tableBody.innerHTML = "";
+
+        ordersToDisplay.forEach((order) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${order.order}</td>
+            <td>${order.product}</td>
+            <td>${order.customer}</td>
+            <td>${order.date}</td>
+            <td><span class="badge status-badge status-${order.status.toLowerCase()}">${
+            order.status
+          }</span></td>
+            <td>${order.total}</td>
+            <td><button class="btn btn-outline-success">View</button></td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Function to hide/show columns based on screen width
+      function adjustColumnsForScreenSize() {
+        const screenWidth = window.innerWidth;
+        const orderColumns = document.querySelectorAll(".order-column");
+        const dateColumns = document.querySelectorAll(".date-column");
+        const totalColumns = document.querySelectorAll(".total-column");
+
+        if (screenWidth < 700) {
+          orderColumns.forEach((col) => col.classList.add("d-none"));
+          dateColumns.forEach((col) => col.classList.add("d-none"));
+          totalColumns.forEach((col) => col.classList.add("d-none"));
+        } else {
+          orderColumns.forEach((col) => col.classList.remove("d-none"));
+          dateColumns.forEach((col) => col.classList.remove("d-none"));
+          totalColumns.forEach((col) => col.classList.remove("d-none"));
+        }
+      }
+      adjustColumnsForScreenSize();
+      // Function to handle page changes
+      function changePage(page) {
+        if (page === "prev" && currentPage > 1) {
+          currentPage--;
+        } else if (
+          page === "next" &&
+          currentPage < Math.ceil(filteredOrders.length / rowsPerPage)
+        ) {
+          currentPage++;
+        } else if (typeof page === "number") {
+          currentPage = page;
+        }
+
+        displayOrders(currentPage);
+        updatePagination();
+      }
+
+      // Function to update pagination buttons
+      function updatePagination() {
+        const paginationItems = document.querySelectorAll(
+          "#pagination .page-item"
+        );
+        paginationItems.forEach((item) => item.classList.remove("active"));
+        paginationItems[currentPage].classList.add("active");
+      }
+
+      // Function to filter orders based on status
+      function filterOrders(status) {
+        if (status === "all") {
+          filteredOrders = [...orders]; // Show all orders
+        } else {
+          filteredOrders = orders.filter(
+            (order) => order.status.toLowerCase() === status
+          );
+        }
+
+        currentPage = 1; // Reset to first page after filtering
+        displayOrders(currentPage);
+        updatePagination();
+      }
+
+      // Initialize the table with the first page of all orders
+      displayOrders(currentPage);
+    </script>
+  </body>
+</html>
