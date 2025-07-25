@@ -3,410 +3,205 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/fonts.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <title>Dashboard</title>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
     <style>
       body {
-        background-color: #f8f9fa;
-        font-family: "Poppins", cursive;
-        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
       }
 
-      .sidebar {
-        width: 250px;
-        min-height: 100vh;
-      }
-
-      .nav-link.active {
-        background-color: #2f9e44;
-        color: white !important;
-        border-radius: 5px;
-      }
-      .nav-link,
-      .nav-link:visited {
-        color: #333;
-      }
-      .card {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: none;
-        border-radius: 10px;
-      }
-
-      .navbar {
+      header {
         display: flex;
         justify-content: space-between;
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+      }
+
+      #profileIcon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      #profileDropdown {
+        position: fixed;
+        top: 10%;
+        right: 10%;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px gray;
+        display: none;
+        z-index: 2;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .profile-content img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+
+      .edit {
+        cursor: pointer;
+        color: blue;
+      }
+
+      nav button {
+        margin: 10px;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .order-section {
+        display: none;
+        padding: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin: auto;
+      }
+
+      form label {
+        margin: 10px 0;
+      }
+
+      form button {
+        margin-top: 10px;
+        padding: 10px;
+        background: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      #loadingModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
         align-items: center;
-      }
-
-      h1 {
-        color: #3d3d3d;
-      }
-
-      h5 {
-        color: #6c757d;
-      }
-
-      .text-success {
-        color: #2f9e44 !important;
-      }
-
-      .text-danger {
-        color: #dc3545 !important;
-      }
-
-      .icon {
-        font-size: 1.5rem;
-        display: inline-flex;
         justify-content: center;
-        align-items: center;
       }
 
-      .bg-light-success {
-        background-color: #d9f7e9 !important;
-      }
-
-      .text-success {
-        color: #28a745 !important;
-      }
-
-      .card {
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .progress-bar {
-        transition: width 0.5s ease;
-      }
-      @media (max-width: 768px) {
-        html{ 
-          font-size: 83%;
-        }
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <div class="d-flex">
-      <!-- Sidebar -->
-      <div class="bg-light border-end sidebar">
-        <div class="sidebar-header p-3">
-          <h4 class="text-success">Builders</h4>
-        </div>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a href="dashboard.html" class="nav-link active">Overview</a>
-          </li>
+    <!-- Profile Icon -->
+    <header>
+      <h1>Dashboard</h1>
+      <img src="profile-icon.png" alt="Profile" id="profileIcon" />
+    </header>
 
-          <li class="nav-item">
-            <a href="orders.html" class="nav-link">Orders</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Pages</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Charts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Help</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Main Content -->
-      <div class="flex-grow-1">
-        <!-- Navbar -->
-        <nav class="navbar navbar-light bg-white shadow-sm px-4">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-          </form>
-          <div>
-            <span class="me-3">Notifications</span>
-            <img
-              src="https://via.placeholder.com/40"
-              alt="profile"
-              class="rounded-circle"
-            />
-          </div>
-        </nav>
-
-        <!-- Dashboard Content -->
-        <div class="container mt-4">
-          <div class="text-center mb-4">
-            <h1>Welcome, Samuel!</h1>
-          </div>
-
-          <!-- Overview Cards -->
-          <div class="d-flex flex-column flex-md-row text-center mb-4 gap-4">
-            <div class="col-md-3">
-              <div class="card p-3">
-                <h5>Total Sales</h5>
-                <h2>$12,628</h2>
-                <small class="text-success">↑ 20%</small>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card p-3">
-                <h5>Expenses</h5>
-                <h2>$2,250</h2>
-                <small class="text-danger">↓ 5%</small>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card p-3">
-                <h5>Projects</h5>
-                <h2>23</h2>
-                <small>Open</small>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card p-3">
-                <h5>Invoices</h5>
-                <h2>6</h2>
-                <small>New</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Charts -->
-         
-
-        <div class="row gx-4 justify-content-center">
-          <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-            <div class="card p-3">
-              <h5>Your Order Rate</h5>
-              <canvas id="lineChart"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="card p-3">
-              <h5>Your Sales Statistics</h5>
-              <canvas id="barChart"></canvas>
-            </div>
-          </div>
-        </div>
-        
-
-        <div class="container my-5">
-          <div class="row">
-            <!-- Progress Section -->
-            <div class="col-md-8">
-              <div class="card p-4">
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <h5>Progress</h5>
-                  <a href="#" class="text-success">All projects</a>
-                </div>
-                <div class="mb-3">
-                  <p class="mb-1">Project lorem ipsum dolor sit amet</p>
-                  <div class="progress">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 50%"
-                    ></div>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <p class="mb-1">Project duis aliquam et lacus quis ornare</p>
-                  <div class="progress">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 30%"
-                    ></div>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <p class="mb-1">Project sed tempus felis id lacus pulvinar</p>
-                  <div class="progress">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <p class="mb-1">Project sed tempus felis id lacus pulvinar</p>
-                  <div class="progress">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 60%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Stats Section -->
-            <div class="col-md-4">
-              <div class="card p-4">
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <h5>Stats List</h5>
-                  <a href="#" class="text-success">View report</a>
-                </div>
-                <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <td>google.com</td>
-                      <td class="text-end">110</td>
-                      <td class="text-success text-end">↑ 30%</td>
-                    </tr>
-                    <tr>
-                      <td>getbootstrap.com</td>
-                      <td class="text-end">67</td>
-                      <td class="text-success text-end">23%</td>
-                    </tr>
-                    <tr>
-                      <td>w3schools.com</td>
-                      <td class="text-end">56</td>
-                      <td class="text-danger text-end">↓ 20%</td>
-                    </tr>
-                    <tr>
-                      <td>javascript.com</td>
-                      <td class="text-end">24</td>
-                      <td class="text-end">-</td>
-                    </tr>
-                    <tr>
-                      <td>github.com</td>
-                      <td class="text-end">17</td>
-                      <td class="text-muted text-end">15%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cards Section -->
-          <div class="row mt-4">
-            <div class="col-md-4">
-              <div class="card p-4">
-                <div class="d-flex align-items-center mb-3">
-                  <div
-                    class="icon bg-light-success text-success rounded-circle p-3"
-                  >
-                    📃
-                  </div>
-                  <h5 class="ms-3">Invoices</h5>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  aliquet eros vel diam semper mollis.
-                </p>
-                <button class="btn btn-outline-success">Create New</button>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card p-4">
-                <div class="d-flex align-items-center mb-3">
-                  <div
-                    class="icon bg-light-success text-success rounded-circle p-3"
-                  >
-                    📱
-                  </div>
-                  <h5 class="ms-3">Apps</h5>
-                </div>
-                <p>
-                  Pellentesque varius, elit vel volutpat sollicitudin, lacus
-                  quam efficitur augue.
-                </p>
-                <button class="btn btn-outline-success">Create New</button>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card p-4">
-                <div class="d-flex align-items-center mb-3">
-                  <div
-                    class="icon bg-light-success text-success rounded-circle p-3"
-                  >
-                    🛠️
-                  </div>
-                  <h5 class="ms-3">Tools</h5>
-                </div>
-                <p>
-                  Sed maximus, libero ac pharetra elementum, turpis nisi
-                  molestie neque.
-                </p>
-                <button class="btn btn-outline-success">Create New</button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Profile Dropdown -->
+    <div id="profileDropdown" class="hidden">
+      <div class="profile-content">
+        <span id="closeProfile">&times;</span>
+        <img src="user-photo.jpg" alt="User Photo" />
+        <p>
+          Name: <span id="userName">John Doe</span> <span class="edit">✎</span>
+        </p>
+        <p>
+          Email: <span id="userEmail">johndoe@email.com</span>
+          <span class="edit">✎</span>
+        </p>
+        <p>
+          Phone: <span id="userPhone">+123456789</span>
+          <span class="edit">✎</span>
+        </p>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      // Line Chart
-      const lineCtx = document.getElementById("lineChart").getContext("2d");
-      new Chart(lineCtx, {
-        type: "line",
-        data: {
-          labels: [
-            "Day 1",
-            "Day 2",
-            "Day 3",
-            "Day 4",
-            "Day 5",
-            "Day 6",
-            "Day 7",
-          ],
-          datasets: [
-            {
-              label: "Current Week",
-              data: [9000, 7000, 4000, 6000, 8000, 8500, 9000],
-              borderColor: "#2f9e44",
-              tension: 0.4,
-              fill: false,
-            },
-            {
-              label: "Previous Week",
-              data: [8000, 7500, 5000, 6500, 7000, 8000, 8500],
-              borderColor: "#6c757d",
-              borderDash: [5, 5],
-              tension: 0.4,
-              fill: false,
-            },
-          ],
-        },
-      });
+    <!-- Navigation Tabs -->
+    <nav>
+      <button onclick="showSection('pendingOrders')">Pending Orders</button>
+      <button onclick="showSection('completedOrders')">Completed Orders</button>
+      <button onclick="showSection('myOrders')">My Orders</button>
+    </nav>
 
-      // Bar Chart
-      const barCtx = document.getElementById("barChart").getContext("2d");
-      new Chart(barCtx, {
-        type: "bar",
-        data: {
-          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-          datasets: [
-            {
-              label: "Orders",
-              data: [20, 50, 80, 70, 60, 30, 90],
-              backgroundColor: "#2f9e44",
-            },
-          ],
-        },
-      });
-    </script>
+    <!-- Order Sections -->
+    <section id="pendingOrders" class="order-section hidden">
+      <h2>Pending Orders</h2>
+      <a href="#" onclick="goBack()">← Back</a>
+      <p>No pending orders.</p>
+    </section>
+
+    <section id="completedOrders" class="order-section hidden">
+      <h2>Completed Orders</h2>
+      <a href="#" onclick="goBack()">← Back</a>
+      <p>No completed orders.</p>
+    </section>
+
+    <section id="myOrders" class="order-section hidden">
+      <h2>My Orders</h2>
+      <a href="#" onclick="goBack()">← Back</a>
+      <p>No active orders.</p>
+    </section>
+
+    <!-- Place Order Form -->
+    <section id="placeOrder">
+      <h2>Place an Order</h2>
+      <form id="orderForm">
+        <label
+          >Product:
+          <select>
+            <option>Product A</option>
+            <option>Product B</option>
+          </select>
+        </label>
+        <label
+          >Quantity:
+          <select>
+            <option>1</option>
+            <option>2</option>
+          </select>
+        </label>
+        <label
+          >Delivery Location:
+          <select>
+            <option>Location A</option>
+            <option>Location B</option>
+          </select>
+        </label>
+        <label
+          >Additional Info:
+          <textarea placeholder="Other requests..."></textarea>
+        </label>
+        <button type="submit">Submit Order</button>
+      </form>
+    </section>
+
+    <!-- Processing Order Modal -->
+    <div id="loadingModal" class="hidden">
+      <div class="modal-content">
+        <img src="company-logo.png" alt="Loading" />
+        <p>Finding vendors...</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
